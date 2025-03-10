@@ -354,3 +354,37 @@ input[type="submit"] {
 	}
 }
 
+/* Optimisation des images du carousel (LCP) */
+.carousel-item img {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 16/9;
+	object-fit: cover;
+	contain: layout paint;
+  }
+  
+  /* Réservation d'espace pour les images de galerie */
+  .gallery-item {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	contain: layout paint;
+  }
+  
+  /* Préchargement des polices pour éviter FOUT (Flash of Unstyled Text) */
+  html {
+	font-display: swap;
+  }
+  
+  /* Optimisation du contenu visible en premier (above the fold) */
+  .top-header, #header {
+	content-visibility: auto;
+	contain-intrinsic-size: auto 100px 500px;
+  }
+  
+  /* Optimisation pour les appareils mobiles */
+  @media (max-width: 768px) {
+	.carousel-item img {
+	  aspect-ratio: 1/1;  /* Format carré pour mobile */
+	}
+  }
